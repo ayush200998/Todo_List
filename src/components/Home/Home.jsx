@@ -12,14 +12,25 @@ const Home = () => {
     const [input, setInput] = useState('')
     const [res, setReset] = useState(false)
 
+    const organiseInput = (e) => {
+        setInput(e.target.value)
+    }
+
     const add = () => {
-        dispatch( addList(input))
+        const inputArray = input.split('#')
+        const title = inputArray[0]
+        const tags = [];
+        for(let i=1; i<inputArray.length; i++){
+            tags.push(inputArray[i])
+        }
+        dispatch(addList({ title, tags }))
         setInput('')
     }
 
     const reset = () => {
         dispatch(resetState())
-        setReset(prev => !prev)        
+        setReset(prev => !prev)
+        console.log(res)        
     }
 
     return (
@@ -40,7 +51,7 @@ const Home = () => {
                         fullWidth 
                         name='input' 
                         value={input}
-                        onChange={(e) => setInput(e.target.value)} 
+                        onChange={(e) => organiseInput(e)} 
                         placeholder='Enter the item.' 
                     />
                 </Grid>

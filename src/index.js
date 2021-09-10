@@ -10,11 +10,9 @@ import listReducer from './reducers/listReducer'
 const store = createStore(listReducer, compose(applyMiddleware(thunk)))
 
 ReactDOM.render(
-  <React.StrictMode>
     <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>,
+        <App />
+    </Provider>,
   document.getElementById('root')
 );
 

@@ -1,5 +1,5 @@
-export const addList = (input) => (dispatch) => {
-    dispatch({type: 'ADD', payload: input})
+export const addList = (data) => (dispatch) => {
+    dispatch({type: 'ADD', payload: data})
 }
 
 export const makeChangesInList = (list) => (dispatch) => {
@@ -7,6 +7,9 @@ export const makeChangesInList = (list) => (dispatch) => {
 }
 
 export const resetState = () => (dispatch) =>{
-    console.log('reset activated')
     dispatch({type: 'RESET'})
+}
+
+export const search = (tag) => (dispatch) => {
+    dispatch({type: 'SEARCH', payload: tag})
 }

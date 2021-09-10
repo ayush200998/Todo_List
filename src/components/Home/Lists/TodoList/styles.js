@@ -16,5 +16,17 @@ export default makeStyles(() => ({
         marginTop: '10px',
         fontFamily: 'Didot serif',
         marginLeft: '10px'
+    },
+    Container: {
+        display: 'flex',
+        flexDirection: 'column'
+    },
+    tagsContainer: {
+        display: 'flex',
+    },
+    tags:{
+        color: 'steelblue',
+        marginLeft: '10px',
+        cursor: 'pointer',
     }
 }))
