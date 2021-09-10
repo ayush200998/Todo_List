@@ -4,6 +4,7 @@ import { Clear } from '@material-ui/icons'
 import useStyles from './styles'
 import { useDispatch } from 'react-redux'
 import { makeChangesInList, search } from '../../../../actions/lists'
+import { motion } from 'framer-motion'
 
 const TodoList = ({ list, setCompleted }) => {
     const classes = useStyles()
@@ -22,7 +23,11 @@ const TodoList = ({ list, setCompleted }) => {
 
     return (
         <Container className={classes.listContainer}>
-            <div className={classes.Container}>
+            <motion.div
+                initial={{y: -100}}
+                animate={{y: 0}}
+                className={classes.Container}
+            >
                 <Typography variant='h6' className={classes.list}> {list?.title} </Typography>
                 <div className={classes.tagsContainer}>
                 {
@@ -35,7 +40,7 @@ const TodoList = ({ list, setCompleted }) => {
                         )
                 )}
                 </div>
-            </div>   
+            </motion.div>   
             {!list?.isCompleted && (
                 <Button onClick={addToComplete} variant='contained' color='secondary'>
                     Remove <Clear />
